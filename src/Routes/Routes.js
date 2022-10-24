@@ -18,15 +18,18 @@ export const routes = createBrowserRouter([
         children:[
            {
             path: '/',
-            element: <Home></Home>
+            element: <Home></Home>,
+            loader: ()=> fetch('https://assignment-10-server-site.vercel.app/course')
            },
            {
             path: '/category/:id',
-            element: <Category></Category>
+            element: <Category></Category>,
+            loader: ({params}) => fetch(`https://assignment-10-server-site.vercel.app/course-categories/${params.id}`)
            },
            {
             path: '/course/:id',
-            element: <PrivateRoute><Course></Course></PrivateRoute>
+            element: <PrivateRoute><Course></Course></PrivateRoute>,
+            loader: ({params}) => fetch(`https://assignment-10-server-site.vercel.app/course/${params.id}`)
            },
            {
             path: '/login',
