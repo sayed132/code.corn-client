@@ -1,9 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import logo from '../../../../Assets/logo/logo.svg'
 
 const Header = () => {
     return (
-        <div className="navbar bg-base-100">
+        <div className="navbar bg-slate-400 mb-12 shadow-lg">
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost btn-circle">
@@ -11,13 +12,16 @@ const Header = () => {
                     </label>
                     <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
                         <li><Link to={'/'}>Homepage</Link></li>
-                        <li><Link to={'/course'}>Portfolio</Link></li>
+                        <li><Link to={'/course'}>Course</Link></li>
+                        <li><Link to={'/login'}>Get Premium</Link></li>
+                        <li><Link to={'/login'}>About</Link></li>
+                        <li><Link to={'/login'}>About</Link></li>
                         <li><Link to={'/login'}>About</Link></li>
                     </ul>
                 </div>
             </div>
-            <div className="navbar-center">
-                <Link className="btn btn-ghost normal-case text-xl">daisyUI</Link>
+            <div className="navbar-center"> <img className='h-10 w-full object-cover md:h-full md:w-10' src={logo} alt="" />
+                <Link to={'/'} className="btn btn-ghost normal-case text-xl font-bold">Code With Rafsan</Link>
             </div>
             <div className="navbar-end">
                 <button className="btn btn-ghost btn-circle">
