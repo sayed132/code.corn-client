@@ -2,6 +2,7 @@ import { createBrowserRouter } from 'react-router-dom'
 import Main from '../Layouts/Main'
 import Category from '../Layouts/Pages/Category/Category'
 import Course from '../Layouts/Pages/Course/Course'
+import CourseCategoryList from '../Layouts/Pages/CourseCategoryList/CourseCategoryList'
 import Home from '../Layouts/Pages/Home/Home'
 import Login from '../Layouts/Pages/Login/Login'
 import Register from '../Layouts/Pages/Login/Register'
@@ -34,7 +35,11 @@ export const routes = createBrowserRouter([
            {
             path: '/register',
             element: <Register></Register>
-           }
+           },
+           {
+            path: '/course',
+            element: <CourseCategoryList></CourseCategoryList>
+           },
         ]
     }
 ])

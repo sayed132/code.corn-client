@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FaGoogle, FaGithub } from 'react-icons/fa';
+import CourseCategoryList from '../../CourseCategoryList/CourseCategoryList';
 
 const SideNavbar = () => {
     const [categories, setCategories] = useState([]);
@@ -23,6 +24,7 @@ const SideNavbar = () => {
                         <Link to={`/category/${category.id}`}>{category.name}</Link>
                     </p>)
                 }
+                
             </div>
         </div>
     );
