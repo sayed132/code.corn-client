@@ -10,7 +10,6 @@ const SideNavbar = () => {
             .then(res => res.json())
             .then(data => setCategories(data))
     }, [])
-
     return (
         <div className='border mx-4'>
             <div className="btn-group grid grid-cols-1 gap-4 w-100">

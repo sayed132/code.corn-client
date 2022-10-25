@@ -8,12 +8,14 @@ const Category = () => {
     return (
         <div>
             <h2>this is category has news: {categoryCourse.length}</h2>
+            <div className='grid grid-cols-1 lg:grid-cols-2 gap-4 mx-8'>
             {
                 categoryCourse.map(course => <CourseSummaryCard
                     key={course._id}
                     course={course}
                 ></CourseSummaryCard>)
             }
+        </div>
         </div>
     );
 

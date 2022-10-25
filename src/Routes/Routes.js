@@ -1,4 +1,3 @@
-
 import { createBrowserRouter } from 'react-router-dom'
 import Main from '../Layouts/Main'
 import Category from '../Layouts/Pages/Category/Category'
@@ -7,9 +6,6 @@ import Home from '../Layouts/Pages/Home/Home'
 import Login from '../Layouts/Pages/Login/Login'
 import Register from '../Layouts/Pages/Login/Register'
 import PrivateRoute from './PrivateRoute'
-
-
-
 
 export const routes = createBrowserRouter([
     {
@@ -24,7 +20,7 @@ export const routes = createBrowserRouter([
            {
             path: '/category/:id',
             element: <Category></Category>,
-            loader: ({params}) => fetch(`https://assignment-10-server-site.vercel.app/course-categories/${params.id}`)
+            loader: ({params}) => fetch(`https://assignment-10-server-site.vercel.app/category/${params.id}`)
            },
            {
             path: '/course/:id',

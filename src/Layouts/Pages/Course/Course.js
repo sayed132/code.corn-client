@@ -7,7 +7,7 @@ const Course = () => {
     console.log(courseDetails);
     const { title, details, image_url, category_id, author, rating, total_view , tutorials} = courseDetails;
     return (
-        <div style={{ height: '550px' }} className="card  bg-base-100 shadow-xl">
+        <div style={{ height: '550px' }} className="card  bg-base-100 shadow-lg">
             <figure><img style={{ height: '150px' }} src={image_url} alt="thumbnail" /></figure>
             <div className="card-body">
                 <h2 className="card-title">
