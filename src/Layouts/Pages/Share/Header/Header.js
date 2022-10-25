@@ -1,7 +1,8 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import { FaUser, FaUserAlt } from 'react-icons/fa';
+import { FaUser, FaUserAlt, FaUserCircle } from 'react-icons/fa';
 import logo from '../../../../Assets/logo/logo.svg'
+import profile from '../../../../Assets/logo/profile.jpg'
 import { AuthContext } from '../../../../Context/AuthProvider';
 
 const Header = () => {
@@ -55,7 +56,7 @@ const Header = () => {
                     {
                         user?.uid ?
                             <>
-                                <span className='hidden md:flex'>{user?.displayName}</span>
+                                <span className='hidden md:flex'>{user?.displayName ? user?.displayName : user.email}</span>
                                 <button className="py-2 mx-1 px-4 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75" onClick={handleLogOut}>Log out</button>
                             </>
                             :
@@ -75,13 +76,21 @@ const Header = () => {
                             <button className="btn btn-ghost btn-circle">
                                 <div className="avatar online">
                                     <div className="w-12 rounded-full">
-                                        <abbr title={user.displayName}>
-                                            <img src={user?.photoURL} alt='' />
+                                        <abbr title={user?.displayName ? user?.displayName : user.email}>
+                                            <img src={user?.photoURL ? user?.photoURL : profile } alt='' />
                                         </abbr>
                                     </div>
                                 </div>
                             </button>
-                            :  <FaUser></FaUser>
+                            :  <button className="btn btn-ghost btn-circle">
+                            <div className="avatar online">
+                                <div className="w-12 rounded-full">
+                                    
+                                        <img src={ profile } alt='' />
+                                
+                                </div>
+                            </div>
+                        </button>
                 }
                 </>
 

@@ -33,7 +33,8 @@ const Register = () => {
         const user = result.user;
         console.log(user);
         form.reset();
-        toast.success("success");
+        handleEmailVerification();
+        toast.success('success fully register, Please verify your email address.')
         navigate(from, {replace: true});
       })
       .catch((err) => {
@@ -45,6 +46,11 @@ const Register = () => {
         setLoading(false);
       });
   };
+  const handleEmailVerification  = () => {
+    verifyEmail()
+    .then(() =>{})
+    .catch(error => console.error(error));
+}
 
   const handleEmailChange = (e) => {
     const email = e.target.value;
