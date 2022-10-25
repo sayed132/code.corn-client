@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FaGoogle, FaGithub } from 'react-icons/fa';
 import CourseCategoryList from '../../CourseCategoryList/CourseCategoryList';
+import Carousel from '../Carousel/Carousel';
 
 const SideNavbar = () => {
     const [categories, setCategories] = useState([]);
@@ -25,6 +26,9 @@ const SideNavbar = () => {
                     </p>)
                 }
                 
+            </div>
+            <div style={{height: '210px'}}>
+                <Carousel></Carousel>
             </div>
         </div>
     );
