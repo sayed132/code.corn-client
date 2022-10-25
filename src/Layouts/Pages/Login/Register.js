@@ -11,6 +11,7 @@ const Register = () => {
   const { createUser, updateUserProfile, verifyEmail, setLoading } = useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
+  const from = location.state?.from?.pathname || '/';
   const [showPass, setShowPass] = useState(false);
 
   const [userInfo, setUserInfo] = useState({
@@ -33,8 +34,7 @@ const Register = () => {
         console.log(user);
         form.reset();
         toast.success("success");
-        console.log(location?.state?.from);
-        navigate(location?.state?.from?.pathname);
+        navigate(from, {replace: true});
       })
       .catch((err) => {
         console.log(err);

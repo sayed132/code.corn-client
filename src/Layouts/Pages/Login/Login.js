@@ -1,6 +1,6 @@
 import { GoogleAuthProvider } from 'firebase/auth';
 import React, { useContext, useState } from 'react';
-import toast from 'react-hot-toast';
+import toast, { ToastBar } from 'react-hot-toast';
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 import { BiLogInCircle } from "react-icons/bi";
 import { Link, useLocation, useNavigate } from 'react-router-dom';
@@ -8,9 +8,10 @@ import { AuthContext } from '../../../Context/AuthProvider';
 import './Login.css';
 
 const Login = () => {
-  const {  signIn, setLoading, providerLogin } = useContext(AuthContext);
+  const {  signIn, setLoading, providerLogin, } = useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
+  const from = location.state?.from?.pathname || '/';
   const [showPass, setShowPass] = useState(false);
   const googleProvider = new GoogleAuthProvider()
   const handleGoogleSignIn = () => {
@@ -18,6 +19,7 @@ const Login = () => {
         .then(result => {
             const user = result.user;
             console.log(user);
+            navigate(from, {replace: true});
         })
         .catch(error => console.error(error))
 }
@@ -35,15 +37,18 @@ const Login = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    const form = e.target;
     signIn(userInfo.email, userInfo.password)
       .then((result) => {
+        const user = result.user;
         toast.success("success");
-        console.log(location.state.from);
-        navigate(location?.state?.from?.pathname);
+        form.reset();
+        navigate(from, {replace: true});
       })
       .catch((err) => {
         console.log(err);
         setErrors({ ...errors, general: err.message });
+        form.reset();
       })
       .finally(() => {
         setLoading(false);
