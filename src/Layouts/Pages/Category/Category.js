@@ -7,7 +7,7 @@ const Category = () => {
     console.log(categoryCourse);
     return (
         <div>
-            <h2>this is category has news: {categoryCourse.length}</h2>
+            <h2>this category has {categoryCourse.length} course</h2>
             <div className='grid grid-cols-1 lg:grid-cols-2 gap-4 mx-8'>
             {
                 categoryCourse.map(course => <CourseSummaryCard

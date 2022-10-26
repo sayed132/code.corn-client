@@ -1,28 +1,42 @@
-import { GoogleAuthProvider } from 'firebase/auth';
+import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 import React, { useContext, useState } from 'react';
 import toast, { ToastBar } from 'react-hot-toast';
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 import { BiLogInCircle } from "react-icons/bi";
+import { FaGithub } from 'react-icons/fa';
+import { FcGoogle } from 'react-icons/fc';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../Context/AuthProvider';
 import './Login.css';
 
 const Login = () => {
-  const {  signIn, setLoading, providerLogin, } = useContext(AuthContext);
+  const { signIn, setLoading, providerLogin, githubLogin , setUser} = useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
   const from = location.state?.from?.pathname || '/';
   const [showPass, setShowPass] = useState(false);
-  const googleProvider = new GoogleAuthProvider()
+  const googleProvider = new GoogleAuthProvider();
+  const githubProvider = new GithubAuthProvider();
   const handleGoogleSignIn = () => {
     providerLogin(googleProvider)
-        .then(result => {
-            const user = result.user;
-            console.log(user);
-            navigate(from, {replace: true});
-        })
-        .catch(error => console.error(error))
-}
+      .then(result => {
+        const user = result.user;
+        console.log(user);
+        navigate(from, { replace: true });
+      })
+      .catch(error => console.error(error))
+  }
+
+  const handleGithubLogin = () => {
+    githubLogin(githubProvider)
+      .then(result => {
+        const user = result.user;
+        setUser(user)
+        console.log(user);
+        navigate(from, { replace: true });
+      })
+      .catch(error => console.error(error))
+  }
 
   const [userInfo, setUserInfo] = useState({
     email: "",
@@ -43,7 +57,7 @@ const Login = () => {
         const user = result.user;
         toast.success('success fully LogeIn.')
         form.reset();
-        navigate(from, {replace: true});
+        navigate(from, { replace: true });
       })
       .catch((err) => {
         console.log(err);
@@ -52,7 +66,7 @@ const Login = () => {
       })
       .finally(() => {
         setLoading(false);
-    });
+      });
   };
 
   const handleEmailChange = (e) => {
@@ -118,7 +132,8 @@ const Login = () => {
         </p>
       </form>
 
-      <button onClick={handleGoogleSignIn}>Google</button>
+      <button onClick={handleGoogleSignIn}><FcGoogle className='text-2xl' /> &nbsp;Google</button>
+      <button onClick={handleGithubLogin}><FaGithub className='text-2xl'/> &nbsp; Github </button>
     </div>
   );
 };

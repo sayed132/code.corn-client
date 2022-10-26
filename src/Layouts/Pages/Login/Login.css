@@ -70,6 +70,9 @@
     font-weight: 900;
     box-shadow: 6px 6px 6px #cbced1, -6px -6px 6px white;
     transition: 0.5s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .login-container button:hover {

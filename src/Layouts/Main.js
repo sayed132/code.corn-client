@@ -1,15 +1,19 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
 import Footer from './Pages/Share/Footer/Footer';
-import Header from './Pages/Share/Header/Header';
+import Nav from './Pages/Share/NavBar/Nav';
 import SideNavbar from './Pages/Share/SideNavbar/SideNavbar';
 
 const Main = () => {
     return (
         <div>
-            <Header></Header>
+
+            <Nav></Nav>
             <div className='lg:grid grid-cols-4 mb-12'>
-                <SideNavbar></SideNavbar>
+                <div className='hidden lg:grid'>
+                    <SideNavbar></SideNavbar>
+                </div>
+
                 <div className='col-span-3'>
                     <Outlet></Outlet>
                 </div>

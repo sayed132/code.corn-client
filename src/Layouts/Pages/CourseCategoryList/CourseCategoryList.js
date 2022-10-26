@@ -1,23 +1,24 @@
 import React, { useEffect, useState } from 'react';
 import CategoryDetails from '../CategoryDetails/CategoryDetails';
+import CourseSummaryCard from '../Share/CourseSummaryCard/CourseSummaryCard';
 
 const CourseCategoryList = () => {
-    const [CategoryList, setCategoryList] = useState([]);
+    const [courseList, setCourserList] = useState([]);
 
     useEffect(() => {
-        fetch('https://assignment-10-server-site.vercel.app/course-categories')
+        fetch('https://assignment-10-server-site.vercel.app/course')
             .then(res => res.json())
-            .then(data => setCategoryList(data))
+            .then(data => setCourserList(data))
     }, [])
     
     return (
-        <div className='grid grid-cols-1 lg:grid-cols-2 gap-4 mx-8'>
+        <div className='grid grid-cols-1 md:grid-cols-2 gap-4 mx-8'>
             {
-                    CategoryList.map(category => <CategoryDetails
-                        key={category.id}
-                        category={category}
-                    ></CategoryDetails>)
-                }
+                courseList.map(course => <CourseSummaryCard
+                    key={course._id}
+                    course={course}
+                ></CourseSummaryCard>)
+            }
         </div>
     );
 };
