@@ -2,7 +2,7 @@ import React from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 import { FaStar, FaEye, FaPencilAlt } from 'react-icons/fa';
 
-const Course = () => {
+const Checkout = () => {
     const courseDetails = useLoaderData();
     console.log(courseDetails);
     const { title, details, image_url, category_id, author, rating, total_view , tutorials} = courseDetails;
@@ -33,7 +33,7 @@ const Course = () => {
     );
 };
 
-export default Course;
+export default Checkout;
 
 {/* <Link to={`/category/${category_id}`}>
                 <Button variant="primary">All news in this category</Button>

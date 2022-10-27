@@ -82,6 +82,8 @@ const Register = () => {
     <div className="login-container">
       <div className="login-title">Sign up <SiGnuprivacyguard /></div>
       <form className="login-form" onSubmit={handleSubmit}>
+        <input type="text" />
+        <input type="text" />
         <input
           type="text"
           name="email"

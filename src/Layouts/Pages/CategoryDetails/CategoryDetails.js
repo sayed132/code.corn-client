@@ -21,9 +21,10 @@ const CategoryDetails = ({ category }) => {
                             <img className="badge badge-outline w-100 btn-circle mr-2" src={author?.img} alt="" />
                             <div className="badge badge-outline"><FaPencilAlt></FaPencilAlt> &nbsp;{author?.name}</div>
                         </div>
-                        <div className=" justify-end font-bold">
+                        <div className=" justify-end items-center font-bold">
                             <div className="badge badge-outline mr-2">Price:{price}</div>
-                            <div className="badge badge-outline hover:bg-yellow-300 ">Get Premium</div>
+                            <div className="badge badge-outline text-amber-500"><FaStar></FaStar> &nbsp;{rating}</div>
+                            
                         </div>
                     </div>
                 </div>

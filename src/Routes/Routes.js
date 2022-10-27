@@ -2,8 +2,7 @@ import { createBrowserRouter } from 'react-router-dom'
 import Main from '../Layouts/Main'
 import CourseBlog from '../Layouts/Pages/Blog/CourseBlog'
 import Category from '../Layouts/Pages/Category/Category'
-import Course from '../Layouts/Pages/Course/Course'
-import CourseCategoryList from '../Layouts/Pages/CourseCategoryList/CourseCategoryList'
+import Checkout from '../Layouts/Pages/Ceckout/Checkout'
 import ErrorPage from '../Layouts/Pages/ErrorPage/ErrorPage'
 import CourseFaq from '../Layouts/Pages/Faq/CourseFaq'
 import Header from '../Layouts/Pages/Header/Header'
@@ -31,12 +30,12 @@ export const routes = createBrowserRouter([
            },
            {
             path: '/category/:id',
-            element: <PrivateRoute><Category></Category></PrivateRoute>,
+            element: <Category></Category>,
             loader: ({params}) => fetch(`https://assignment-10-server-site.vercel.app/category/${params.id}`)
            },
            {
             path: '/course/:id',
-            element: <PrivateRoute><Course></Course></PrivateRoute>,
+            element: <PrivateRoute><Checkout></Checkout></PrivateRoute>,
             loader: ({params}) => fetch(`https://assignment-10-server-site.vercel.app/course/${params.id}`)
            },
            {
