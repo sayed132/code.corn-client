@@ -55,13 +55,15 @@ const Nav = () => {
                                 <>
                                     <button className="py-2 md:mr-6 px-4 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75" onClick={handleLogOut}>Log out</button>
                                     <button className="btn btn-ghost btn-circle">
-                                        <div className="avatar online">
-                                            <div className="w-12 rounded-full">
-                                                <abbr title={user?.displayName ? user?.displayName : user.email}>
-                                                    <img src={user?.photoURL ? user?.photoURL : profile} alt='' />
-                                                </abbr>
+                                        <Link to={'/profile'}>
+                                            <div className="avatar online">
+                                                <div className="w-12 rounded-full">
+                                                    <abbr title={user?.displayName ? user?.displayName : user.email}>
+                                                        <img src={user?.photoURL ? user?.photoURL : profile} alt='' />
+                                                    </abbr>
+                                                </div>
                                             </div>
-                                        </div>
+                                        </Link>
                                     </button>
                                 </>
                                 :

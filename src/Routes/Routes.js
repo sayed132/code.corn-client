@@ -10,12 +10,14 @@ import Home from '../Layouts/Pages/Home/Home'
 import Login from '../Layouts/Pages/Login/Login'
 import Register from '../Layouts/Pages/Login/Register'
 import PremiumCourse from '../Layouts/Pages/Premium/PremiumCourse'
+import Profile from '../Layouts/Pages/Profile/Profile'
 import PrivateRoute from './PrivateRoute'
 
 export const routes = createBrowserRouter([
     {
         path: '/',
-        element: <Header></Header>
+        element: <Header></Header>,
+        errorElement: <ErrorPage></ErrorPage>
 
     },
     {
@@ -61,6 +63,10 @@ export const routes = createBrowserRouter([
            {
             path: '/faq',
             element: <CourseFaq></CourseFaq>
+           },
+           {
+            path: '/profile',
+            element: <PrivateRoute><Profile></Profile></PrivateRoute>
            }
         ]
     }

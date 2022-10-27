@@ -28,14 +28,18 @@ const Register = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const form = e.target;
+    const name = form.name.value;
+    const photoURL = form.photoURL.value;
+    console.log(name, photoURL);
     createUser(userInfo.email, userInfo.password)
       .then((result) => {
         const user = result.user;
         console.log(user);
         form.reset();
         handleEmailVerification();
+        handleUpdateUserProfile(name, photoURL)
         toast.success('success fully register, Please verify your email address.')
-        navigate(from, {replace: true});
+        navigate(from, { replace: true });
       })
       .catch((err) => {
         console.log(err);
@@ -46,11 +50,23 @@ const Register = () => {
         setLoading(false);
       });
   };
-  const handleEmailVerification  = () => {
-    verifyEmail()
-    .then(() =>{})
-    .catch(error => console.error(error));
+
+  const handleUpdateUserProfile = (name, photoURL) => {
+    const profile = {
+        displayName: name,
+        photoURL: photoURL
+    }
+
+    updateUserProfile(profile)
+        .then(() => { })
+        .catch(error => console.error(error));
 }
+  
+  const handleEmailVerification = () => {
+    verifyEmail()
+      .then(() => { })
+      .catch(error => console.error(error));
+  }
 
   const handleEmailChange = (e) => {
     const email = e.target.value;
@@ -82,8 +98,16 @@ const Register = () => {
     <div className="login-container">
       <div className="login-title">Sign up <SiGnuprivacyguard /></div>
       <form className="login-form" onSubmit={handleSubmit}>
-        <input type="text" />
-        <input type="text" />
+        <input
+          type="text"
+          name='name'
+          placeholder='Your Full Name'
+        />
+        <input
+          name="photoURL" 
+          type="text" 
+          placeholder="Phot URL"
+        />
         <input
           type="text"
           name="email"
@@ -92,7 +116,7 @@ const Register = () => {
           onChange={handleEmailChange}
         />
         {errors.email && <p className="error-message">{errors.email}</p>}
-        
+
         <div className="relative">
           <input
             type={showPass ? "text" : "password"}
@@ -107,7 +131,7 @@ const Register = () => {
           {errors.password && <p className="error-message">{errors.password}</p>}
         </div>
 
-        <div className="relative">
+        {/* <div className="relative">
           <input
             type={showPass ? "text" : "password"}
             name="password"
@@ -119,7 +143,7 @@ const Register = () => {
             {showPass ? <AiFillEyeInvisible /> : <AiFillEye />}
           </div>
           {errors.password && <p className="error-message">{errors.password}</p>}
-        </div>
+        </div> */}
 
         <button>Sign up</button>
         {errors.general && <p className="error-message">{errors.general}</p>}
