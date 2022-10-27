@@ -1,17 +1,16 @@
-import { createBrowserRouter } from 'react-router-dom'
-import Main from '../Layouts/Main'
-import CourseBlog from '../Layouts/Pages/Blog/CourseBlog'
-import Category from '../Layouts/Pages/Category/Category'
-import Checkout from '../Layouts/Pages/Ceckout/Checkout'
-import ErrorPage from '../Layouts/Pages/ErrorPage/ErrorPage'
-import CourseFaq from '../Layouts/Pages/Faq/CourseFaq'
-import Header from '../Layouts/Pages/Header/Header'
-import Home from '../Layouts/Pages/Home/Home'
-import Login from '../Layouts/Pages/Login/Login'
-import Register from '../Layouts/Pages/Login/Register'
-import PremiumCourse from '../Layouts/Pages/Premium/PremiumCourse'
-import Profile from '../Layouts/Pages/Profile/Profile'
-import PrivateRoute from './PrivateRoute'
+import { createBrowserRouter } from 'react-router-dom';
+import Main from '../Layouts/Main';
+import CourseBlog from '../Layouts/Pages/Blog/CourseBlog';
+import Category from '../Layouts/Pages/Category/Category';
+import Checkout from '../Layouts/Pages/Ceckout/Checkout';
+import ErrorPage from '../Layouts/Pages/ErrorPage/ErrorPage';
+import CourseFaq from '../Layouts/Pages/Faq/CourseFaq';
+import Header from '../Layouts/Pages/Header/Header';
+import Home from '../Layouts/Pages/Home/Home';
+import Login from '../Layouts/Pages/Login/Login';
+import Register from '../Layouts/Pages/Login/Register';
+import Profile from '../Layouts/Pages/Profile/Profile';
+import PrivateRoute from './PrivateRoute';
 
 export const routes = createBrowserRouter([
     {
@@ -47,14 +46,6 @@ export const routes = createBrowserRouter([
            {
             path: '/register',
             element: <Register></Register>
-           },
-        //    {
-        //     path: '/course',
-        //     element: <PrivateRoute><CourseCategoryList></CourseCategoryList></PrivateRoute>
-        //    },
-           {
-            path: '/get-premium',
-            element: <PremiumCourse></PremiumCourse>
            },
            {
             path: '/blog',

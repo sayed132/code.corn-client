@@ -1,5 +1,7 @@
 import React from 'react';
 import Nav from '../Share/NavBar/Nav';
+import Footer from '../Share/Footer/Footer'
+import CourseFaq from '../Faq/CourseFaq';
 
 const Header = () => {
     return (
@@ -28,18 +30,16 @@ const Header = () => {
                     <div className="flex flex-col items-center justify-between xl:flex-row">
                         <div className="w-full max-w-xl mb-12 xl:mb-0 xl:pr-16 xl:w-7/12">
                             <h2 className="max-w-lg mb-6 font-sans text-3xl font-bold tracking-tight text-white sm:text-4xl sm:leading-none">
-                                The quick, brown fox <br className="hidden md:block" />
-                                jumps over a lazy dog
+                            Complete Web Development Course with<br className="hidden md:block" />
+                             <span className='text-amber-500'>Code</span>.Corn
                             </h2>
                             <p className="max-w-xl mb-4 text-base text-gray-200 md:text-lg">
-                                Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-                                accusantium doloremque laudan, totam rem aperiam, eaque ipsa
-                                quae.
+                            একদম জিরো থেকে, কোন প্রকার পূর্ব অভিজ্ঞতা ছাড়াই একজন প্রফেশনাল ওয়েব ডেভেলপার হওয়ার জন্য যা যা লাগবে তার সবকিছুই সহজ করে গিলিয়ে খাওয়ানো হবে এই কোর্সে।
                             </p>
                             <a
                                 href="/"
                                 aria-label=""
-                                className="inline-flex items-center font-semibold tracking-wider transition-colors duration-200 text-teal-accent-400 hover:text-teal-accent-700"
+                                className="bg-indigo-700 p-3 rounded-md text-white inline-flex items-center font-semibold tracking-wider transition-colors duration-200 text-teal-accent-400 hover:text-teal-accent-700"
                             >
                                 Learn more
                                 <svg
@@ -122,6 +122,12 @@ const Header = () => {
                     </div>
                 </div>
             </div>
+        </div>
+        <div>
+            <CourseFaq></CourseFaq>
+        </div>
+        <div>
+            <Footer></Footer>
         </div>
         </div>
     );

@@ -1,8 +1,9 @@
 import React from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
-import { FaStar, FaEye, FaPencilAlt } from 'react-icons/fa';
+import { FaFilePdf, FaEye, FaPencilAlt } from 'react-icons/fa';
 import Pdf from "react-to-pdf";
 
+/* createRef for pdf downloader */
 const ref = React.createRef();
 const Checkout = () => {
     const courseDetails = useLoaderData();
@@ -12,17 +13,17 @@ const Checkout = () => {
         <div style={{ height: '550px' }} className="card mx-4 lg:mx-28  bg-base-100 shadow-lg">
             <Pdf targetRef={ref} filename="code-example.pdf">
                 {({ toPdf }) =>
-                    <button onClick={toPdf} className="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg">Download Pdf</button>
+                    <button onClick={toPdf} className="btn btn-xs sm:btn-sm md:btn-md lg:btn-lg"><FaFilePdf className=' lg:text-4xl'></FaFilePdf> &nbsp;&nbsp; Download Pdf</button>
                  }
             </Pdf>
             <div ref={ref} >
-                <figure><img style={{ height: '150px' }} src={image_url} alt="thumbnail" /></figure>
+                <figure><img style={{ height: '250px' }} src={image_url} alt="thumbnail" /></figure>
                 <div className="card-body">
                     <h2 className="card-title">
                         {title}
                         <div className="badge badge-secondary">NEW</div>
                     </h2>
-                    <p>{details.slice(0, 150)}</p>
+                    <p>{details}</p>
                     <div>{tutorials ? tutorials : <>sorry no tutorials founds</>}</div>
                     <div className="card-actions justify-between items-center">
                         <div className="card-actions items-center justify-start">

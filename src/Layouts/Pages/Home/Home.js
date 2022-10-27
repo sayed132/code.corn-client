@@ -1,6 +1,6 @@
 import React from 'react';
 import { useLoaderData } from 'react-router-dom';
-import CategoryDetails from '../CategoryDetails/CategoryDetails';
+import CategoryDetails from '../CourseCategories/CourseCategories';
 import CourseSummaryCard from '../Share/CourseSummaryCard/CourseSummaryCard';
 
 const Home = () => {

@@ -13,10 +13,10 @@ const SideNavbar = () => {
     }, [])
     return (
         <div className=' bg-gray-200 p-6 rounded-md shadow-2xl'>
-            <div className="hidden btn-group lg:grid grid-cols-1 gap-4 w-100 ">
+            {/* <div className="hidden btn-group lg:grid grid-cols-1 gap-4 w-100 ">
                 <button className="btn btn-outline"> <FaGoogle className='text-xl'></FaGoogle> &nbsp; LogIn With Google</button>
                 <button className="btn btn-outline"><FaGithub className='text-xl'></FaGithub> &nbsp; LogIn With Github</button>
-            </div>
+            </div> */}
             <div>
                 <h2 className='bg-cyan-500 hover:bg-cyan-600 my-4 p-2 font-bold rounded-md text-amber-100'>Total {categories.length} course get the premium access here</h2>
                 {

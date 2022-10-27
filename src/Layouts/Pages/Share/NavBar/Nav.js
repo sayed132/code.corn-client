@@ -31,7 +31,6 @@ const Nav = () => {
                         <li><Link to={'/course'}>Course</Link></li>
                         <li><Link to={'/faq'}>FAQ</Link></li>
                         <li><Link to={'/blog'}>Blog</Link></li>
-                        <li><Link to={'/checkout'}>Premium Access</Link></li>
                     </ul>
                     {/* dark/light them */}
                     <label className="swap swap-rotate">
@@ -92,7 +91,6 @@ const Nav = () => {
                             <li><Link to={'/course'}>Course</Link></li>
                             <li><Link to={'/faq'}>FAQ</Link></li>
                             <li><Link to={'/blog'}>Blog</Link></li>
-                            <li><Link to={'/checkout'}>Premium Access</Link></li>
                             <div className='lg:hidden'>
                                 <SideNavbar></SideNavbar>
                             </div>
