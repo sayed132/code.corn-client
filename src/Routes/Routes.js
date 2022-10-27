@@ -6,6 +6,7 @@ import Course from '../Layouts/Pages/Course/Course'
 import CourseCategoryList from '../Layouts/Pages/CourseCategoryList/CourseCategoryList'
 import ErrorPage from '../Layouts/Pages/ErrorPage/ErrorPage'
 import CourseFaq from '../Layouts/Pages/Faq/CourseFaq'
+import Header from '../Layouts/Pages/Header/Header'
 import Home from '../Layouts/Pages/Home/Home'
 import Login from '../Layouts/Pages/Login/Login'
 import Register from '../Layouts/Pages/Login/Register'
@@ -15,17 +16,22 @@ import PrivateRoute from './PrivateRoute'
 export const routes = createBrowserRouter([
     {
         path: '/',
+        element: <Header></Header>
+
+    },
+    {
+        path: '/',
         element: <Main></Main>,
         errorElement: <ErrorPage></ErrorPage>,
         children:[
            {
-            path: '/',
+            path: '/course',
             element: <Home></Home>,
             loader: ()=> fetch('https://assignment-10-server-site.vercel.app/course-categories ')
            },
            {
             path: '/category/:id',
-            element: <Category></Category>,
+            element: <PrivateRoute><Category></Category></PrivateRoute>,
             loader: ({params}) => fetch(`https://assignment-10-server-site.vercel.app/category/${params.id}`)
            },
            {
@@ -41,10 +47,10 @@ export const routes = createBrowserRouter([
             path: '/register',
             element: <Register></Register>
            },
-           {
-            path: '/course',
-            element: <CourseCategoryList></CourseCategoryList>
-           },
+        //    {
+        //     path: '/course',
+        //     element: <PrivateRoute><CourseCategoryList></CourseCategoryList></PrivateRoute>
+        //    },
            {
             path: '/get-premium',
             element: <PremiumCourse></PremiumCourse>
